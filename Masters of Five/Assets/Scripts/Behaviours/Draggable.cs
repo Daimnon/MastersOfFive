@@ -72,9 +72,9 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
         transform.SetParent(ParentToReturn);
         transform.SetSiblingIndex(_placeholder.transform.GetSiblingIndex());
-        Destroy(_placeholder);
-
         _canvasGroup.blocksRaycasts = true;
+
+        Destroy(_placeholder);
         IsHoldingCard = false;
     }
 

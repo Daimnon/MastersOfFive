@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardData: {fileID: 11400000, guid: 47f538589d029c8478f2a29fd89a6175, type: 2}
   ArtworkImage: {fileID: 6787497958751985540}
+  CardTemplate: {fileID: 0}
   NameText: {fileID: 6787497959943659404}
   DescriptionText: {fileID: 6787497958631513117}
   ManaText: {fileID: 6787497959369161364}
@@ -386,6 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardData: {fileID: 11400000, guid: e933b98903f95f14eaed4bdc68fb406c, type: 2}
   ArtworkImage: {fileID: 6787497959808329699}
+  CardTemplate: {fileID: 0}
   NameText: {fileID: 6787497959448216332}
   DescriptionText: {fileID: 6787497960701751190}
   ManaText: {fileID: 6787497960190741507}
@@ -1057,6 +1059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardData: {fileID: 11400000, guid: 60aa827cf1816cd4fa2e8c0e06552139, type: 2}
   ArtworkImage: {fileID: 6787497959719947634}
+  CardTemplate: {fileID: 0}
   NameText: {fileID: 6787497959878696754}
   DescriptionText: {fileID: 6787497960293063627}
   ManaText: {fileID: 6787497960211779495}
@@ -1851,6 +1854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardData: {fileID: 11400000, guid: c55893f33d7ecae45b663e00b294a007, type: 2}
   ArtworkImage: {fileID: 6787497958848350854}
+  CardTemplate: {fileID: 0}
   NameText: {fileID: 6787497959877199258}
   DescriptionText: {fileID: 6787497959554814295}
   ManaText: {fileID: 6787497959074211566}
@@ -2271,6 +2275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardData: {fileID: 11400000, guid: e31026ead7c5b4146876e153ce7f624e, type: 2}
   ArtworkImage: {fileID: 6787497960499065943}
+  CardTemplate: {fileID: 0}
   NameText: {fileID: 6787497958994389499}
   DescriptionText: {fileID: 6787497959352004935}
   ManaText: {fileID: 6787497959051784729}

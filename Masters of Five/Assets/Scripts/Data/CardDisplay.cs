@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class CardDisplay : MonoBehaviour {
 
 	public Card CardData;
 	public Image ArtworkImage, CardTemplate;
-	public Text NameText, DescriptionText;
-	public Text ManaText, AttackText, HealthText;
+	public TextMeshProUGUI NameText, DescriptionText;
+	public TextMeshProUGUI ManaText, AttackText, HealthText;
 
 	// Use this for initialization
 	void Start()

@@ -10,12 +10,10 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private CanvasGroup _canvasGroup;
 
     [SerializeField]
-    private LayoutElement _layoutElement;
-
-    [SerializeField]
     private float _onHoverOffsetHand = 160f, _onHoverOffsetBattleField = 80f;
 
     public bool IsCardInHand = true, IsHoldingCard = false;
+
     public Transform ParentToReturn = null;
     public Transform ParentToReturnPlaceholder = null;
     private GameObject _placeholder = null;
@@ -28,8 +26,8 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         _placeholder = new GameObject($"{name}_Placeholder");
         _placeholder.transform.SetParent(transform.parent);
         LayoutElement le = _placeholder.AddComponent<LayoutElement>();
-        le.preferredWidth = _layoutElement.preferredWidth;
-        le.preferredHeight = _layoutElement.preferredHeight;
+        le.preferredWidth = GetComponent<LayoutElement>().preferredWidth;
+        le.preferredHeight = GetComponent<LayoutElement>().preferredHeight;
         le.flexibleWidth = 0;
         le.flexibleHeight = 0;
 
@@ -39,7 +37,6 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         ParentToReturnPlaceholder = ParentToReturn;
         transform.SetParent(transform.parent.parent);
         _canvasGroup.blocksRaycasts = false;
-
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -59,8 +56,6 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
             {
                 newSiblingIndex = i;
 
-                //_placeholder.transform.SetSiblingIndex(i);
-
                 if (_placeholder.transform.GetSiblingIndex() < newSiblingIndex)
                     newSiblingIndex--;
 
@@ -77,10 +72,10 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
         transform.SetParent(ParentToReturn);
         transform.SetSiblingIndex(_placeholder.transform.GetSiblingIndex());
-        _canvasGroup.blocksRaycasts = true;
-
-        IsHoldingCard = false;
         Destroy(_placeholder);
+
+        _canvasGroup.blocksRaycasts = true;
+        IsHoldingCard = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

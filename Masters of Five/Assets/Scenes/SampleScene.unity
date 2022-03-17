@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: CardTemplate
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5421632068035983616, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: CardData
+      value: 
+      objectReference: {fileID: 11400000, guid: e31026ead7c5b4146876e153ce7f624e, type: 2}
     - target: {fileID: 7162373759061322120, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -410,12 +414,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99144495
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.13052596
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -427,7 +443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a530986ed496f41b3435786db14b76, type: 3}
@@ -777,13 +793,13 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: -160
+  m_Spacing: -50
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
-  m_ChildScaleWidth: 1
-  m_ChildScaleHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
 --- !u!114 &1365488839
 MonoBehaviour:
@@ -962,6 +978,10 @@ PrefabInstance:
       propertyPath: CardTemplate
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5421632068035983616, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: CardData
+      value: 
+      objectReference: {fileID: 11400000, guid: c55893f33d7ecae45b663e00b294a007, type: 2}
     - target: {fileID: 7162373759061322120, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1095,12 +1115,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.965926
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.2588186
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1112,7 +1144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a530986ed496f41b3435786db14b76, type: 3}
@@ -1129,6 +1161,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3999866116701283572, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386468838888586138, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LayoutPriority
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4618190271320950325, guid: 96a530986ed496f41b3435786db14b76, type: 3}
@@ -1163,6 +1199,10 @@ PrefabInstance:
       propertyPath: CardTemplate
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5421632068035983616, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: CardData
+      value: 
+      objectReference: {fileID: 11400000, guid: e933b98903f95f14eaed4bdc68fb406c, type: 2}
     - target: {fileID: 7162373759061322120, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1292,12 +1332,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.965926
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.2588186
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1309,7 +1361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a530986ed496f41b3435786db14b76, type: 3}
@@ -1479,6 +1531,10 @@ PrefabInstance:
       propertyPath: CardTemplate
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5421632068035983616, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: CardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 60aa827cf1816cd4fa2e8c0e06552139, type: 2}
     - target: {fileID: 7162373759061322120, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1612,12 +1668,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99144495
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.13052596
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1629,7 +1697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a530986ed496f41b3435786db14b76, type: 3}
@@ -1688,6 +1756,10 @@ PrefabInstance:
       propertyPath: CardTemplate
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5421632068035983616, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: CardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 47f538589d029c8478f2a29fd89a6175, type: 2}
     - target: {fileID: 6457921805738950177, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -1830,6 +1902,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+      propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489138779395646456, guid: 96a530986ed496f41b3435786db14b76, type: 3}

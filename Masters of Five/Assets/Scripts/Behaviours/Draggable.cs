@@ -7,6 +7,9 @@ using UnityEngine;
 public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
+    private GameObject _3DCardPrefab;
+    
+    [SerializeField]
     private CanvasGroup _canvasGroup;
 
     [SerializeField]
@@ -73,9 +76,11 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         transform.SetParent(ParentToReturn);
         transform.SetSiblingIndex(_placeholder.transform.GetSiblingIndex());
         _canvasGroup.blocksRaycasts = true;
-
+        
         Destroy(_placeholder);
         IsHoldingCard = false;
+
+        Instantiate(_3DCardPrefab, Input.mousePosition, Quaternion.identity);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

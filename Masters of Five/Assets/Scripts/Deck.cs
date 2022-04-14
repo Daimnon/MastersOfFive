@@ -26,6 +26,8 @@ public class Deck : MonoBehaviour
     private Aspect[] ShowTopTwoAspectsInDeck()
     {
         // Should make use of "GetTopAspectInDeck" in order to find the card to draw
+        // Build around or dispose of the sample code I created below :)
+
         Aspect aspect1, aspect2;
 
         for (int i = 0; i < _aspectsInDeck.Length; i++)

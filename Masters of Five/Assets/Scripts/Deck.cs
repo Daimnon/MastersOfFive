@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,21 +7,37 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
     private int _maxDeckSize = 25, _currentDeckSize;
-    
-    private Aspect[] _aspectsInDeck = new Aspect[25];
-    private Aspect[] _topTwoAspectsInDeck = new Aspect[2];
-    private Aspect Draw()
-    {
-        // Make Drawing from deck to hand
-        // Should make use of "GetTopAspectInDeck" in order to find the card to draw
 
-        return GetTopAspectInDeck();
+    //private Aspect[] _aspectsInDeck = new Aspect[25];
+    //private Aspect[] _topTwoAspectsInDeck = new Aspect[2];
+    [SerializeField]
+    private List<Card> _aspectsInDeck = new List<Card>(25);
+
+    private System.Random _rand;
+
+
+    private void Start()
+    {
+        _rand = new System.Random();
     }
 
-    private Aspect GetTopAspectInDeck()
+    public void InitializeGame(IEnumerable startingHand, Transform hand)
+    {
+        startingHand = _aspectsInDeck.OrderBy(x => _rand.Next(0, 25)).Take(4);
+
+        foreach (Card card in startingHand)
+        {
+            Instantiate(card, hand);
+            print(card.Name);
+        }
+    }
+
+    /*
+    public Aspect GetTopAspectInDeck()
     {
         // Find top Aspect in deck
-        return _aspectsInDeck[_aspectsInDeck.Length/* -1?*/];
+
+        return _aspectsInDeck[_aspectsInDeck.Length/* -1?*//*];
     }
 
     private Aspect[] ShowTopTwoAspectsInDeck()
@@ -53,4 +70,5 @@ public class Deck : MonoBehaviour
 
         return _topTwoAspectsInDeck;
     }
+    */
 }

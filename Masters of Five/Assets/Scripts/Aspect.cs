@@ -5,4 +5,9 @@ using UnityEngine;
 public abstract class Aspect : MonoBehaviour
 {
     new string name = "";
+
+    protected void CreateNewAspect()
+    {
+
+    }
 }

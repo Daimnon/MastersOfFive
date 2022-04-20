@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    public IEnumerable _cardsInHand;
+
     public void OnDrop(PointerEventData eventData)
     {
         print("card Placed");

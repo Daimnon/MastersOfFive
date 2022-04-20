@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class EventHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Deck _deck;
+
+    [SerializeField]
+    private Hand _hand;
+
+    [SerializeField]
+    private Transform _playerHand;
+
+    public void Draw()
     {
-        
+        // Draw first card from deck's aspect list from deck to hand
+        if (Input.GetMouseButtonDown(0))
+            _deck.InitializeGame(_hand._cardsInHand, _playerHand);
+
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

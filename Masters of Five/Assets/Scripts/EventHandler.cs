@@ -13,7 +13,7 @@ public class EventHandler : MonoBehaviour
     [SerializeField]
     private Transform _playerHand;
 
-    public void Draw()
+    public void StartGame()
     {
         // Draw first card from deck's aspect list from deck to hand
         if (Input.GetMouseButtonDown(0))

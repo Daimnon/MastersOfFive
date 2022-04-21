@@ -11,6 +11,9 @@ public class Deck : MonoBehaviour
     //private Aspect[] _aspectsInDeck = new Aspect[25];
     //private Aspect[] _topTwoAspectsInDeck = new Aspect[2];
     [SerializeField]
+    private GameObject _cardPrefab;
+
+    [SerializeField]
     private List<Card> _aspectsInDeck = new List<Card>(25);
 
     private System.Random _rand;
@@ -19,27 +22,31 @@ public class Deck : MonoBehaviour
     private void Start()
     {
         _rand = new System.Random();
+        _aspectsInDeck.OrderBy(randomAspectsInDeck => _rand.Next(0, 25));
     }
 
     public void InitializeGame(IEnumerable startingHand, Transform hand)
     {
-        startingHand = _aspectsInDeck.OrderBy(x => _rand.Next(0, 25)).Take(4);
+        startingHand = _aspectsInDeck.Take(4);
 
         foreach (Card card in startingHand)
         {
-            Instantiate(card, hand);
+            Instantiate(_cardPrefab, hand);
+
+            //check if works (update: it does)
             print(card.Name);
         }
     }
 
+    //public Card GetTopAspectInDeck(IEnumerable startingHand, Transform hand)
+    //{
+    //    // Find top Aspect in deck
+    //    startingHand = _aspectsInDeck.Take(0);
+    //
+    //    return _aspectsInDeck[_aspectsInDeck.Length/* -1?*/];
+    //}
+
     /*
-    public Aspect GetTopAspectInDeck()
-    {
-        // Find top Aspect in deck
-
-        return _aspectsInDeck[_aspectsInDeck.Length/* -1?*//*];
-    }
-
     private Aspect[] ShowTopTwoAspectsInDeck()
     {
         // Should make use of "GetTopAspectInDeck" in order to find the card to draw

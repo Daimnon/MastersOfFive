@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
     private Hand _hand;
+
+    public Image _shitHappened;
+
     public List<Card> CardsInField;
+
+    private void Start()
+    {
+        _shitHappened.gameObject.SetActive(false);
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eventData.pointerDrag == null)
@@ -33,7 +43,6 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
             currentCard.ParentToReturn = transform;
             currentCard.IsCardInHand = false;
             PlaceCard(currentCard, CardsInField);
-            
         }
     }
 
@@ -80,5 +89,7 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
             (card as LifeCard).Action();
         else if (card is ControlCard)
             (card as ControlCard).Action();
+
+        _shitHappened.gameObject.SetActive(true);
     }
 }

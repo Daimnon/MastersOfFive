@@ -7,8 +7,8 @@ public class EventHandler : MonoBehaviour
 {
     [SerializeField] private Deck _deck;
     [SerializeField] private Hand _hand;
+    [SerializeField] private Battlefield _battlefield;
     
-    //[SerializeField] private Battlefield _battlefield;
     
     //private LightCard _lightAspect;
     //private DeathCard _deathAspect;
@@ -28,6 +28,7 @@ public class EventHandler : MonoBehaviour
     public void DrawCard()
     {
         _deck.DrawCard(_hand.CardsInHand, _handP);
+        _battlefield._shitHappened.gameObject.SetActive(false);
     }
 
     public void DrawTwo()

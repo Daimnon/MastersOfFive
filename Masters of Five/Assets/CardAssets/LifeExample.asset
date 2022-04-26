@@ -15,6 +15,7 @@ MonoBehaviour:
   Name: Life
   Description: This is a LIFE  card Example.
   Artwork: {fileID: 21300000, guid: 3bd3d63109cb2aa409c0bec36eb348c6, type: 3}
+  CardTemplate: {fileID: 21300000, guid: d6547c907a5f86f4197e712ca60455fc, type: 3}
   ManaCost: 4
   Attack: 4
   Health: 4

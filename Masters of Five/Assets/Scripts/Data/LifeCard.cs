@@ -9,4 +9,19 @@ public class LifeCard : Card
 	{
 		PrimodialPower = PowerType.Life;
 	}
+
+	public void Action()
+	{
+		Debug.Log("Do Life Action");
+	}
+
+	public void SupremeAction()
+	{
+		Debug.Log("Do Life Supreme Action");
+	}
+
+	public void SecondaryAction()
+	{
+		Debug.Log("Do Life Secondary Action");
+	}
 }

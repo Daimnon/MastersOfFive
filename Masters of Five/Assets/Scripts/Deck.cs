@@ -8,74 +8,80 @@ public class Deck : MonoBehaviour
 {
     private int _maxDeckSize = 25, _currentDeckSize;
 
-    //private Aspect[] _aspectsInDeck = new Aspect[25];
-    //private Aspect[] _topTwoAspectsInDeck = new Aspect[2];
     [SerializeField]
     private GameObject _cardPrefab;
 
     [SerializeField]
     private List<Card> _aspectsInDeck = new List<Card>(25);
 
-    private System.Random _rand;
-
-
     private void Start()
     {
-        _rand = new System.Random();
-        _aspectsInDeck.OrderBy(randomAspectsInDeck => _rand.Next(0, 25));
+        //randomize _aspectsInDeck list
+        for (int i = 0; i < _aspectsInDeck.Count; i++)
+        {
+            Card temp = _aspectsInDeck[i];
+            int randomIndex = UnityEngine.Random.Range(i, _aspectsInDeck.Count);
+            _aspectsInDeck[i] = _aspectsInDeck[randomIndex];
+            _aspectsInDeck[randomIndex] = temp;
+        }
     }
 
-    public void InitializeGame(IEnumerable startingHand, Transform hand)
+    public void InitializeGame(List<Card> cardsInHand, Transform hand)
     {
-        startingHand = _aspectsInDeck.Take(4);
+        //get top 4 cards in deck
+        List<Card> cardsToHand = _aspectsInDeck.GetRange(0, 4);
 
-        foreach (Card card in startingHand)
+        //add said cards to hand
+        cardsInHand.AddRange(cardsToHand);
+
+        //loops through said cards's data, reads it and creates a prefab based on that data in the hand
+        foreach (Card card in cardsToHand)
         {
+            _cardPrefab.GetComponent<CardDisplay>().CardData = card;
             Instantiate(_cardPrefab, hand);
 
             //check if works (update: it does)
             print(card.Name);
         }
+
+        //remove drawn cards from deck
+        _aspectsInDeck.RemoveRange(0, 4);
     }
 
-    //public Card GetTopAspectInDeck(IEnumerable startingHand, Transform hand)
-    //{
-    //    // Find top Aspect in deck
-    //    startingHand = _aspectsInDeck.Take(0);
-    //
-    //    return _aspectsInDeck[_aspectsInDeck.Length/* -1?*/];
-    //}
-
-    /*
-    private Aspect[] ShowTopTwoAspectsInDeck()
+    public void DrawCard(List<Card> cardsInHand, Transform hand)
     {
-        // Should make use of "GetTopAspectInDeck" in order to find the card to draw
-        // Build around or dispose of the sample code I created below :)
+        //get top card in deck & adds it to the hand
+        cardsInHand.Add(_aspectsInDeck[0]);
 
-        Aspect aspect1, aspect2;
+        //reads said card data and creates a prefab based on that data in the hand
+        _cardPrefab.GetComponent<CardDisplay>().CardData = _aspectsInDeck[0];
+        Instantiate(_cardPrefab, hand);
+        
+        //check if works (update: it does)
+        print(_aspectsInDeck[0].Name);
 
-        for (int i = 0; i < _aspectsInDeck.Length; i++)
+        _aspectsInDeck.RemoveAt(0);
+    }
+
+    public void DrawTwo(List<Card> cardsInHand, Transform hand)
+    {
+        //get top 2 cards in deck
+        List<Card> cardsToHand = _aspectsInDeck.GetRange(0, 2);
+
+        //add said cards to hand
+        cardsInHand.AddRange(cardsToHand);
+
+        //loops through said cards's data, reads it and creates a prefab based on that data in the hand
+        foreach (Card card in cardsToHand)
         {
-            if (i < 1)
-            {
-                aspect1 = GetTopAspectInDeck();
-                _topTwoAspectsInDeck[0] = aspect1;
-            }
+            _cardPrefab.GetComponent<CardDisplay>().CardData = card;
+            Instantiate(_cardPrefab, hand);
 
-            else if (i < 2)
-            {
-                aspect2 = GetTopAspectInDeck();
-                _topTwoAspectsInDeck[1] = aspect2;
-            }
-
-            else
-            {
-                print("Couldn't resolve: 'ShowTwoTopAspectsInDeck()'");
-                break;
-            }
+            //check if works (update: it does)
+            print(card.Name);
         }
 
-        return _topTwoAspectsInDeck;
+        //remove drawn cards from deck
+        _aspectsInDeck.RemoveRange(0, 2);
     }
-    */
 }

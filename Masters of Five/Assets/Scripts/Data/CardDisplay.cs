@@ -4,8 +4,8 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class CardDisplay : MonoBehaviour {
-
+public class CardDisplay : MonoBehaviour
+{
 	public Card CardData;
 	public Image ArtworkImage, CardTemplate;
 	public TextMeshProUGUI NameText, DescriptionText;

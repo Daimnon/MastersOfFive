@@ -9,4 +9,19 @@ public class ControlCard : Card
     {
 		PrimodialPower = PowerType.Control;
 	}
+
+	public void Action()
+	{
+		Debug.Log("Do Control Action");
+	}
+
+	public void SupremeAction()
+	{
+		Debug.Log("Do Control Supreme Action");
+	}
+
+	public void SecondaryAction()
+	{
+		Debug.Log("Do Control Secondary Action");
+	}
 }

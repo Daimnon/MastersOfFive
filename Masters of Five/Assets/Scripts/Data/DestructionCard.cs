@@ -9,4 +9,19 @@ public class DestructionCard : Card
 	{
 		PrimodialPower = PowerType.Destruction;
 	}
+
+	public void Action()
+	{
+		Debug.Log("Do Destruction Action");
+	}
+
+	public void SupremeAction()
+	{
+		Debug.Log("Do Destruction Supreme Action");
+	}
+
+	public void SecondaryAction()
+	{
+		Debug.Log("Do Destruction Secondary Action");
+	}
 }

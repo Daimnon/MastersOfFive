@@ -4,10 +4,7 @@ using UnityEngine;
 
 public abstract class Aspect : MonoBehaviour
 {
-    new string name = "";
-
-    protected void CreateNewAspect()
-    {
-
-    }
+    //[SerializeField]
+    //protected Card _cardData;
+    //public abstract void Action();
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public IEnumerable _cardsInHand;
+    public List<Card> CardsInHand;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -14,11 +14,8 @@ public class Hand : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
         Draggable currentCard = eventData.pointerDrag.GetComponent<Draggable>();
 
         if (currentCard != null)
-        {
-            if(currentCard.IsCardInHand)
+            if (currentCard.IsCardInHand)
                 currentCard.ParentToReturn = transform;
-
-        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

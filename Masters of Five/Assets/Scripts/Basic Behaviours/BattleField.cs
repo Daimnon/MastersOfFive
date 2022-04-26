@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class BattleField : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField]
+    private Hand _hand;
+    public List<Card> CardsInField;
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eventData.pointerDrag == null)
@@ -29,6 +32,8 @@ public class BattleField : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
         {
             currentCard.ParentToReturn = transform;
             currentCard.IsCardInHand = false;
+            PlaceCard(currentCard, CardsInField);
+            
         }
     }
 
@@ -44,5 +49,36 @@ public class BattleField : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
             currentCard.ParentToReturnPlaceholder = transform;
             currentCard.IsCardInHand = false;
         }
+    }
+
+    public void PlaceCard(Draggable currentCard, List<Card> cardsInField)
+    {
+        //get current card
+        Card cardToField = currentCard.gameObject.GetComponent<CardDisplay>().CardData;
+
+        //add current card to battlefield
+        cardsInField.Add(cardToField);
+
+        //check if works (update: it does)
+        print(cardToField.Name);
+
+        //remove placed cards from deck
+        _hand.CardsInHand.Remove(cardToField);
+
+        Action(cardToField);
+    }
+
+    public void Action(Card card)
+    {
+        if (card is LightCard)
+            (card as LightCard).Action();
+        else if (card is DeathCard)
+            (card as DeathCard).Action();
+        else if (card is DestructionCard)
+            (card as DestructionCard).Action();
+        else if (card is LifeCard)
+            (card as LifeCard).Action();
+        else if (card is ControlCard)
+            (card as ControlCard).Action();
     }
 }

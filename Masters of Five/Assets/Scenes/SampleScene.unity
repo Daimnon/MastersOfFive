@@ -492,7 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deck: {fileID: 99858479}
   _hand: {fileID: 1365488841}
-  _battlefield: {fileID: 2050533433}
+  _battlefield: {fileID: 0}
   _handP: {fileID: 1365488837}
   _battlefieldP: {fileID: 2050533429}
 --- !u!4 &132929809
@@ -3938,7 +3938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 1365488841}
-  _shitHappened: {fileID: 285098695}
+  _shitHappened: {fileID: 0}
   CardsInField: []
 --- !u!1001 &2114842618
 PrefabInstance:

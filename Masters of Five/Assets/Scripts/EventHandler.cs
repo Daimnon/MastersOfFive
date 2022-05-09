@@ -28,7 +28,6 @@ public class EventHandler : MonoBehaviour
     public void DrawCard()
     {
         _deck.DrawCard(_hand.CardsInHand, _handP);
-        _battlefield._shitHappened.gameObject.SetActive(false);
     }
 
     public void DrawTwo()
@@ -36,10 +35,27 @@ public class EventHandler : MonoBehaviour
         _deck.DrawTwo(_hand.CardsInHand, _handP);
     }
 
+    public void PlaceCard(Draggable currentCard, List<Card> cardsInField)
+    {
+        //get current card
+        Card cardToField = currentCard.gameObject.GetComponent<CardDisplay>().CardData;
+
+        //add current card to battlefield
+        cardsInField.Add(cardToField);
+
+        //check if works (update: it does)
+        print(cardToField.Name);
+
+        //remove placed cards from deck
+        _hand.CardsInHand.Remove(cardToField);
+
+        Action(cardToField);
+    }
+
     public void Action(Card card)
     {
         if (card is LightCard)
-            (card as LightCard).Action();
+            (card as LightCard).Action(_hand.CardsInHand, _hand.transform);
         else if (card is DeathCard)
             (card as DeathCard).Action();
         else if (card is DestructionCard)

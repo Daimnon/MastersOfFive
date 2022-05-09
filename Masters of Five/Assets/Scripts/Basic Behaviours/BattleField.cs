@@ -6,43 +6,42 @@ using UnityEngine;
 
 public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField]
-    private Hand _hand;
+    [SerializeField] private EventHandler _eventHandler;
+    [SerializeField] private Hand _hand;
 
-    public Image _shitHappened;
+    private Draggable _currentTarget;
+    private Card _currentCard;
 
     public List<Card> CardsInField;
-
-    private void Start()
-    {
-        _shitHappened.gameObject.SetActive(false);
-    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eventData.pointerDrag == null)
             return;
 
-        Draggable currentCard = eventData.pointerDrag.GetComponent<Draggable>();
+        _currentTarget = eventData.pointerDrag.GetComponent<Draggable>();
+        _currentCard = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
+        //Draggable currentCard = eventData.pointerDrag.GetComponent<Draggable>();
 
-        if (currentCard != null)
+        if (_currentTarget != null)
         {
-            currentCard.ParentToReturnPlaceholder = transform;
-            currentCard.IsCardInHand = false;
+            _currentTarget.ParentToReturnPlaceholder = transform;
+            _currentTarget.IsCardInHand = false;
         }
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        print("card Placed");
-
-        Draggable currentCard = eventData.pointerDrag.GetComponent<Draggable>();
-
-        if (currentCard != null)
+        if (_currentTarget != null)
         {
-            currentCard.ParentToReturn = transform;
-            currentCard.IsCardInHand = false;
-            PlaceCard(currentCard, CardsInField);
+            _currentTarget.ParentToReturn = transform;
+            _currentTarget.IsCardInHand = false;
+            CardsInField.Add(_currentCard);
+            _eventHandler.PlaceCard(_currentTarget, CardsInField);
+            _currentTarget = null;
+            _currentCard = null;
+            
+            print("card Placed");
         }
     }
 
@@ -58,38 +57,5 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
             currentCard.ParentToReturnPlaceholder = transform;
             currentCard.IsCardInHand = false;
         }
-    }
-
-    public void PlaceCard(Draggable currentCard, List<Card> cardsInField)
-    {
-        //get current card
-        Card cardToField = currentCard.gameObject.GetComponent<CardDisplay>().CardData;
-
-        //add current card to battlefield
-        cardsInField.Add(cardToField);
-
-        //check if works (update: it does)
-        print(cardToField.Name);
-
-        //remove placed cards from deck
-        _hand.CardsInHand.Remove(cardToField);
-
-        Action(cardToField);
-    }
-
-    public void Action(Card card)
-    {
-        if (card is LightCard)
-            (card as LightCard).Action();
-        else if (card is DeathCard)
-            (card as DeathCard).Action();
-        else if (card is DestructionCard)
-            (card as DestructionCard).Action();
-        else if (card is LifeCard)
-            (card as LifeCard).Action();
-        else if (card is ControlCard)
-            (card as ControlCard).Action();
-
-        _shitHappened.gameObject.SetActive(true);
     }
 }

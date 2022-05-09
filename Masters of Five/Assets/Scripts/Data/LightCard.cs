@@ -5,14 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Light Card", menuName = "Card/Light")]
 public class LightCard : Card
 {
+	[SerializeField] private Deck _deck;
+	[SerializeField] private Hand _hand;
+
 	public LightCard()
 	{
 		PrimodialPower = PowerType.Light;
 	}
 
-	public void Action()
+	public void Action(List<Card> cardsInHand, Transform hand)
 	{
-		Debug.Log("Do Light Action");
+		_deck.DrawCard(cardsInHand, hand);
 	}
 
 	public void SupremeAction()

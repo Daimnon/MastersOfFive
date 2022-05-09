@@ -36,7 +36,6 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
         {
             _currentTarget.ParentToReturn = transform;
             _currentTarget.IsCardInHand = false;
-            CardsInField.Add(_currentCard);
             _eventHandler.PlaceCard(_currentTarget, CardsInField);
             _currentTarget = null;
             _currentCard = null;

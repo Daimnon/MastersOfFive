@@ -15,6 +15,7 @@ public class LightCard : Card
 
 	public void Action(List<Card> cardsInHand, Transform hand)
 	{
+		// fix needed
 		_deck.DrawCard(cardsInHand, hand);
 	}
 

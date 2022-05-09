@@ -35,10 +35,10 @@ public class EventHandler : MonoBehaviour
         _deck.DrawTwo(_hand.CardsInHand, _handP);
     }
 
-    public void PlaceCard(Draggable currentCard, List<Card> cardsInField)
+    public void PlaceCard(Draggable currentTarget, List<Card> cardsInField)
     {
         //get current card
-        Card cardToField = currentCard.gameObject.GetComponent<CardDisplay>().CardData;
+        Card cardToField = currentTarget.gameObject.GetComponent<CardDisplay>().CardData;
 
         //add current card to battlefield
         cardsInField.Add(cardToField);

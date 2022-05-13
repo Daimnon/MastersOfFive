@@ -10,9 +10,10 @@ public class DestructionCard : Card
 		PrimodialPower = PowerType.Destruction;
 	}
 
-	public void Action()
+	public void Action(EventHandler eventHandler)
 	{
-		Debug.Log("Do Destruction Action");
+		// fix needed
+		eventHandler.DrawCard();
 	}
 
 	public void SupremeAction()

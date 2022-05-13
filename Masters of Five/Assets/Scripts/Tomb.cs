@@ -1,10 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class Tomb : MonoBehaviour
+public class Tomb : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    private bool _closeTomb;
+    [SerializeField] private DataHandler _dataHandler;
+
+    public List<Card> CardsInTomb;
+
+    public Draggable CurrentCardInHand;
+    public Card CurrentCardDataInTomb;
+
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+
+    }
+
+    public void Sacrifice(DataHandler dataHandler, Draggable currentTarget)
+    {
+        dataHandler.IsSacrificing = true;
+
+        //get current card
+        Card cardToTomb = currentTarget.gameObject.GetComponent<CardDisplay>().CardData;
+
+        //add current card to tomb
+        CardsInTomb.Add(cardToTomb);
+
+        //check if works)
+        print(cardToTomb.Name);
+
+        dataHandler.HandData.CardsInHand.Remove(cardToTomb);
+
+
+
+    }
 
     private void Search()
     {

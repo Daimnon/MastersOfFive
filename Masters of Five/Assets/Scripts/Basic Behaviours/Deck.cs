@@ -61,36 +61,38 @@ public class Deck : MonoBehaviour
 
         //remove drawn cards from deck
         _aspectsInDeck.RemoveRange(0, 4);
+        _currentDeckSize -= 4;
     }
 
-    public void DrawCard(Transform hand)
+    public void DrawCard()
     {
         //get top card in deck & adds it to the hand
         _dataHandler.HandData.CardsInHand.Add(_aspectsInDeck[0]);
 
         //reads said card data and creates a prefab based on that data in the hand
         _cardPrefab.GetComponent<CardDisplay>().CardData = _aspectsInDeck[0];
-        Instantiate(_cardPrefab, hand);
+        Instantiate(_cardPrefab, _dataHandler.HandData.transform);
         
         //check if works (update: it does)
         print(_aspectsInDeck[0].Name);
 
         _aspectsInDeck.RemoveAt(0);
+        _currentDeckSize --;
     }
 
-    public void DrawTwo(List<Card> cardsInHand, Transform hand)
+    public void DrawTwo()
     {
         //get top 2 cards in deck
         List<Card> cardsToHand = _aspectsInDeck.GetRange(0, 2);
 
         //add said cards to hand
-        cardsInHand.AddRange(cardsToHand);
+        _dataHandler.HandData.CardsInHand.AddRange(cardsToHand);
 
         //loops through said cards's data, reads it and creates a prefab based on that data in the hand
         foreach (Card card in cardsToHand)
         {
             _cardPrefab.GetComponent<CardDisplay>().CardData = card;
-            Instantiate(_cardPrefab, hand);
+            Instantiate(_cardPrefab, _dataHandler.HandData.transform);
 
             //check if works (update: it does)
             print(card.Name);
@@ -98,5 +100,6 @@ public class Deck : MonoBehaviour
 
         //remove drawn cards from deck
         _aspectsInDeck.RemoveRange(0, 2);
+        _currentDeckSize -= 2;
     }
 }

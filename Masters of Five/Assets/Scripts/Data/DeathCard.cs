@@ -10,9 +10,10 @@ public class DeathCard : Card {
 		PrimodialPower = PowerType.Death;
 	}
 
-	public void Action()
+	public void Action(EventHandler eventHandler)
 	{
-		Debug.Log("Do Death Action");
+		// fix needed
+		eventHandler.Sacrifice();
 	}
 
 	public void SupremeAction()

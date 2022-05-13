@@ -10,9 +10,10 @@ public class LifeCard : Card
 		PrimodialPower = PowerType.Life;
 	}
 
-	public void Action()
+	public void Action(EventHandler eventHandler)
 	{
-		Debug.Log("Do Life Action");
+		// fix needed
+		eventHandler.DrawCard();
 	}
 
 	public void SupremeAction()

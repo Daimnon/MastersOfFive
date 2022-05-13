@@ -1,43 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using UnityEngine;
 
 public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private EventHandler _eventHandler;
 
-    private Draggable _currentTarget;
-    private Card _currentCard;
-
     public List<Card> CardsInField;
+
+    public Draggable CurrentCardInBattlefield;
+    public Card CurrentCardDataInBattlefield;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eventData.pointerDrag == null)
             return;
 
-        _currentTarget = eventData.pointerDrag.GetComponent<Draggable>();
-        _currentCard = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
-        //Draggable currentCard = eventData.pointerDrag.GetComponent<Draggable>();
+        Draggable currentCard = eventData.pointerDrag.GetComponent<Draggable>();
 
-        if (_currentTarget != null)
+        CurrentCardInBattlefield = currentCard;
+        CurrentCardDataInBattlefield = currentCard.GetComponent<CardDisplay>().CardData;
+
+        if (CurrentCardInBattlefield != null)
         {
-            _currentTarget.ParentToReturnPlaceholder = transform;
-            _currentTarget.IsCardInHand = false;
+            CurrentCardInBattlefield.ParentToReturnPlaceholder = transform;
+            CurrentCardInBattlefield.IsCardInHand = false;
         }
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (_currentTarget != null)
+        if (CurrentCardInBattlefield != null)
         {
-            _currentTarget.ParentToReturn = transform;
-            _currentTarget.IsCardInHand = false;
-            _eventHandler.PlaceCard(_currentTarget, CardsInField);
-            _currentTarget = null;
-            _currentCard = null;
+            CurrentCardInBattlefield.ParentToReturn = transform;
+            CurrentCardInBattlefield.IsCardInHand = false;
+            _eventHandler.BattlefieldPlaceCard(CurrentCardInBattlefield);
+            CurrentCardInBattlefield = null;
+            CurrentCardDataInBattlefield = null;
             
             print("card Placed");
         }
@@ -48,12 +48,10 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
         if (eventData.pointerDrag == null)
             return;
 
-        Draggable currentCard = eventData.pointerDrag.GetComponent<Draggable>();
-
-        if (currentCard != null && currentCard.ParentToReturnPlaceholder == transform)
+        if (CurrentCardInBattlefield != null && CurrentCardInBattlefield.ParentToReturnPlaceholder == transform)
         {
-            currentCard.ParentToReturnPlaceholder = transform;
-            currentCard.IsCardInHand = false;
+            CurrentCardInBattlefield.ParentToReturnPlaceholder = transform;
+            CurrentCardInBattlefield.IsCardInHand = false;
         }
     }
 }

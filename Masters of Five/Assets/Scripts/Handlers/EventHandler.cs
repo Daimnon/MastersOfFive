@@ -6,17 +6,6 @@ using UnityEngine;
 public class EventHandler : MonoBehaviour
 {
     [SerializeField] private DataHandler _dataHandler;
-    [SerializeField] private Battlefield _battlefield;
-    
-    
-    //private LightCard _lightAspect;
-    //private DeathCard _deathAspect;
-    //private DestructionCard _destructionAspect;
-    //private LifeCard _lifeAspect;
-    //private ControlCard _controlAspect;
-
-    [SerializeField]
-    private Transform _battlefieldP;
 
     public void StartGame()
     {
@@ -26,26 +15,44 @@ public class EventHandler : MonoBehaviour
 
     public void DrawCard()
     {
-        _dataHandler.DeckData.DrawCard(_dataHandler.HandData.transform);
+        _dataHandler.DeckData.DrawCard();
     }
 
     public void DrawTwo()
     {
-        _dataHandler.DeckData.DrawTwo(_dataHandler.HandData.CardsInHand, _dataHandler.HandData.transform);
+        _dataHandler.DeckData.DrawTwo();
     }
 
-    public void PlaceCard(Draggable currentTarget, List<Card> cardsInField)
+    // not ready
+    public void Sacrifice()
+    {
+        //get current card
+        Card cardToTomb = _dataHandler.BattlefieldData.CurrentCardDataInBattlefield;
+
+        //add current card to tomb
+        _dataHandler.TombData.CardsInTomb.Add(cardToTomb);
+
+        //check if works
+        print(cardToTomb.Name);
+
+        //remove placed cards from hand
+        _dataHandler.HandData.CardsInHand.Remove(cardToTomb);
+
+        Action(cardToTomb);
+    }
+
+    public void BattlefieldPlaceCard(Draggable currentTarget)
     {
         //get current card
         Card cardToField = currentTarget.gameObject.GetComponent<CardDisplay>().CardData;
 
         //add current card to battlefield
-        cardsInField.Add(cardToField);
+        _dataHandler.BattlefieldData.CardsInField.Add(cardToField);
 
-        //check if works (update: it does)
+        //check if works
         print(cardToField.Name);
 
-        //remove placed cards from deck
+        //remove placed cards from hand
         _dataHandler.HandData.CardsInHand.Remove(cardToField);
 
         Action(cardToField);
@@ -56,13 +63,13 @@ public class EventHandler : MonoBehaviour
         if (card is LightCard)
             (card as LightCard).Action(this);
         else if (card is DeathCard)
-            (card as DeathCard).Action();
+            (card as DeathCard).Action(this);
         else if (card is DestructionCard)
-            (card as DestructionCard).Action();
+            (card as DestructionCard).Action(this);
         else if (card is LifeCard)
-            (card as LifeCard).Action();
+            (card as LifeCard).Action(this);
         else if (card is ControlCard)
-            (card as ControlCard).Action();
+            (card as ControlCard).Action(this);
     }
 
     public void SupremeAction(Card card)

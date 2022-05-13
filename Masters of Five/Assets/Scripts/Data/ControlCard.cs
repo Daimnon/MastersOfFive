@@ -10,9 +10,10 @@ public class ControlCard : Card
 		PrimodialPower = PowerType.Control;
 	}
 
-	public void Action()
+	public void Action(EventHandler eventHandler)
 	{
-		Debug.Log("Do Control Action");
+		// fix needed
+		eventHandler.DrawCard();
 	}
 
 	public void SupremeAction()

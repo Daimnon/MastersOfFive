@@ -12,7 +12,6 @@ public class LightCard : Card
 
 	public void Action(EventHandler eventHandler)
 	{
-		// fix needed
 		eventHandler.DrawCard();
 	}
 

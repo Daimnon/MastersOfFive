@@ -7,7 +7,6 @@ using UnityEngine;
 public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private EventHandler _eventHandler;
-    [SerializeField] private Hand _hand;
 
     private Draggable _currentTarget;
     private Card _currentCard;

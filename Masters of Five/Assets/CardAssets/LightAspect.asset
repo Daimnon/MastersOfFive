@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81eb0b00d2301bf46bc6666023297025, type: 3}
   m_Name: LightAspect
   m_EditorClassIdentifier: 
+  EventHandler: {fileID: 2515818366069521751, guid: 43039ff2287307545ac977b36255214d, type: 3}
   Name: Light
   Description: This is a LIGHT card Example.
   Artwork: {fileID: 21300000, guid: 3f981345082dea44681080544138abd3, type: 3}

@@ -116,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf140f378bb6596459bbef6123646486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _3DCardPrefab: {fileID: 8602878570254417871, guid: b212613b0f54d21488518b9ac89290aa, type: 3}
   _canvasGroup: {fileID: 4782212405181470203}
   _onHoverOffsetHand: 130
   _onHoverOffsetBattleField: 80

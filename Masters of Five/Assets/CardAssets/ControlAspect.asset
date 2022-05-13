@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5697c7a7b39b44294a45d801b887b0, type: 3}
   m_Name: ControlAspect
   m_EditorClassIdentifier: 
+  EventHandler: {fileID: 2515818366069521751, guid: 43039ff2287307545ac977b36255214d, type: 3}
   Name: Control
   Description: This is a CONTROL card Example.
   Artwork: {fileID: 21300000, guid: f67b55a67f210244b9b61d947b09853f, type: 3}

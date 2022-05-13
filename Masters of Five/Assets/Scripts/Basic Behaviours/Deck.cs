@@ -8,6 +8,11 @@ public class Deck : MonoBehaviour
 {
     private int _maxDeckSize = 25, _currentDeckSize;
 
+    [SerializeField] private DataHandler _dataHandler;
+
+    [SerializeField]
+    private Card _lightCard, _deathCard, _destructionCard, _lifeCard, _controlCard;
+
     [SerializeField]
     private GameObject _cardPrefab;
 
@@ -16,6 +21,16 @@ public class Deck : MonoBehaviour
 
     private void Start()
     {
+        _aspectsInDeck.Clear();
+
+        for (int i = 0; i < 5; i++)
+        {
+            _aspectsInDeck.Add(_lightCard);
+            _aspectsInDeck.Add(_deathCard);
+            _aspectsInDeck.Add(_destructionCard);
+            _aspectsInDeck.Add(_lifeCard);
+            _aspectsInDeck.Add(_controlCard);
+        }
         //randomize _aspectsInDeck list
         for (int i = 0; i < _aspectsInDeck.Count; i++)
         {
@@ -26,19 +41,19 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public void InitializeGame(List<Card> cardsInHand, Transform hand)
+    public void InitializeGame()
     {
         //get top 4 cards in deck
         List<Card> cardsToHand = _aspectsInDeck.GetRange(0, 4);
 
         //add said cards to hand
-        cardsInHand.AddRange(cardsToHand);
+        _dataHandler.HandData.CardsInHand.AddRange(cardsToHand);
 
         //loops through said cards's data, reads it and creates a prefab based on that data in the hand
         foreach (Card card in cardsToHand)
         {
             _cardPrefab.GetComponent<CardDisplay>().CardData = card;
-            Instantiate(_cardPrefab, hand);
+            Instantiate(_cardPrefab, _dataHandler.HandData.transform);
 
             //check if works (update: it does)
             print(card.Name);
@@ -48,10 +63,10 @@ public class Deck : MonoBehaviour
         _aspectsInDeck.RemoveRange(0, 4);
     }
 
-    public void DrawCard(List<Card> cardsInHand, Transform hand)
+    public void DrawCard(Transform hand)
     {
         //get top card in deck & adds it to the hand
-        cardsInHand.Add(_aspectsInDeck[0]);
+        _dataHandler.HandData.CardsInHand.Add(_aspectsInDeck[0]);
 
         //reads said card data and creates a prefab based on that data in the hand
         _cardPrefab.GetComponent<CardDisplay>().CardData = _aspectsInDeck[0];

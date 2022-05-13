@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2873ace4e25f564dafc1b09dc948653, type: 3}
   m_Name: DeathAspect
   m_EditorClassIdentifier: 
+  EventHandler: {fileID: 2515818366069521751, guid: 43039ff2287307545ac977b36255214d, type: 3}
   Name: Death
   Description: This is a DEATH card Example.
   Artwork: {fileID: 21300000, guid: d0788ca8f888ebd459947fbfd7605601, type: 3}

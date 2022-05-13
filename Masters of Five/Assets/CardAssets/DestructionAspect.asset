@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c7644e1b342214ea0b5f995ef46921, type: 3}
   m_Name: DestructionAspect
   m_EditorClassIdentifier: 
+  EventHandler: {fileID: 2515818366069521751, guid: 43039ff2287307545ac977b36255214d, type: 3}
   Name: Destruction
   Description: This is a DESTRUCTION  card Example.
   Artwork: {fileID: 21300000, guid: 22a9707eceb2c75409c8a32dd9d59554, type: 3}

@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class EventHandler : MonoBehaviour
 {
-    [SerializeField] private Deck _deck;
-    [SerializeField] private Hand _hand;
+    [SerializeField] private DataHandler _dataHandler;
     [SerializeField] private Battlefield _battlefield;
     
     
@@ -17,22 +16,22 @@ public class EventHandler : MonoBehaviour
     //private ControlCard _controlAspect;
 
     [SerializeField]
-    private Transform _handP, _battlefieldP;
+    private Transform _battlefieldP;
 
     public void StartGame()
     {
         // Draw first card from deck's aspect list from deck to hand
-        _deck.InitializeGame(_hand.CardsInHand, _handP);
+        _dataHandler.DeckData.InitializeGame();
     }
 
     public void DrawCard()
     {
-        _deck.DrawCard(_hand.CardsInHand, _handP);
+        _dataHandler.DeckData.DrawCard(_dataHandler.HandData.transform);
     }
 
     public void DrawTwo()
     {
-        _deck.DrawTwo(_hand.CardsInHand, _handP);
+        _dataHandler.DeckData.DrawTwo(_dataHandler.HandData.CardsInHand, _dataHandler.HandData.transform);
     }
 
     public void PlaceCard(Draggable currentTarget, List<Card> cardsInField)
@@ -47,7 +46,7 @@ public class EventHandler : MonoBehaviour
         print(cardToField.Name);
 
         //remove placed cards from deck
-        _hand.CardsInHand.Remove(cardToField);
+        _dataHandler.HandData.CardsInHand.Remove(cardToField);
 
         Action(cardToField);
     }
@@ -55,7 +54,7 @@ public class EventHandler : MonoBehaviour
     public void Action(Card card)
     {
         if (card is LightCard)
-            (card as LightCard).Action(_hand.CardsInHand, _hand.transform);
+            (card as LightCard).Action(this);
         else if (card is DeathCard)
             (card as DeathCard).Action();
         else if (card is DestructionCard)

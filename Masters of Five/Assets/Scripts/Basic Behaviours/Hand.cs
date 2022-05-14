@@ -30,7 +30,7 @@ public class Hand : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerE
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        _dataHandler.TombData.Sacrifice(eventData);
+        _dataHandler.TombData.CardToSacrifice(eventData);
     }
 
     public void OnDrop(PointerEventData eventData)

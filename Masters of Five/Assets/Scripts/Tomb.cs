@@ -28,7 +28,7 @@ public class Tomb : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
     }
 
-    public void Sacrifice(PointerEventData eventData)
+    public void CardToSacrifice(PointerEventData eventData)
     {
         if (!_dataHandler.IsSacrificing)
             return;

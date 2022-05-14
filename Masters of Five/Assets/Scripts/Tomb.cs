@@ -1,21 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine;
 
-public class Tomb : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class Tomb : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    [Header("Data Script")]
     [SerializeField] private DataHandler _dataHandler;
 
-    public List<Card> CardsInTomb;
+    [Header("AspectList")]
+    public List<CardData> CardsInTomb;
 
-    public Draggable CurrentCardInHand;
-    public Card CurrentCardDataInTomb;
+    [Header("CurrentAspects")]
+    public Card CurrentCardInHand;
+    public CardData CurrentCardDataInTomb;
 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
 
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -36,7 +45,7 @@ public class Tomb : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
         else if (_dataHandler.IsSacrificing)
         {
             //get current card
-            Card cardToTomb = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
+            CardData cardToTomb = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
 
             //add current card to tomb
             _dataHandler.TombData.CardsInTomb.Add(cardToTomb);

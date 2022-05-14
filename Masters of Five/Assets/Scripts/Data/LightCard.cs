@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Light Card", menuName = "Card/Light")]
-public class LightCard : Card
+public class LightCard : CardData
 {
 	public LightCard()
 	{

@@ -5,19 +5,22 @@ using UnityEngine;
 
 public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    [Header("Data Script")]
     [SerializeField] private EventHandler _eventHandler;
 
-    public List<Card> CardsInField;
+    [Header("AspectList")]
+    public List<CardData> CardsInField;
 
-    public Draggable CurrentCardInBattlefield;
-    public Card CurrentCardDataInBattlefield;
+    [Header("CurrentAspects")]
+    public Card CurrentCardInBattlefield;
+    public CardData CurrentCardDataInBattlefield;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eventData.pointerDrag == null)
             return;
 
-        Draggable currentCard = eventData.pointerDrag.GetComponent<Draggable>();
+        Card currentCard = eventData.pointerDrag.GetComponent<Card>();
 
         CurrentCardInBattlefield = currentCard;
         CurrentCardDataInBattlefield = currentCard.GetComponent<CardDisplay>().CardData;

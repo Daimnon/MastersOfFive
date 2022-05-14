@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PowerType {Light, Death, Destruction, Life, Control};
 
-public class Card : ScriptableObject
+public class CardData : ScriptableObject
 {
 	public string Name, Description;
 	public Sprite Artwork, CardTemplate;

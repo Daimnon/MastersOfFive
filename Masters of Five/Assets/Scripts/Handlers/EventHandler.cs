@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EventHandler : MonoBehaviour
 {
+    [Header("Data Script")]
     [SerializeField] private DataHandler _dataHandler;
 
     public void StartGame()
@@ -23,17 +24,15 @@ public class EventHandler : MonoBehaviour
         _dataHandler.DeckData.DrawTwo();
     }
 
-    // not ready
     public void Sacrifice()
     {
         _dataHandler.IsSacrificing = true;
     }
 
-
-    public void BattlefieldPlaceCard(Draggable currentTarget)
+    public void BattlefieldPlaceCard(Card currentTarget)
     {
         //get current card
-        Card cardToField = currentTarget.gameObject.GetComponent<CardDisplay>().CardData;
+        CardData cardToField = currentTarget.gameObject.GetComponent<CardDisplay>().CardData;
 
         //add current card to battlefield
         _dataHandler.BattlefieldData.CardsInField.Add(cardToField);
@@ -47,7 +46,7 @@ public class EventHandler : MonoBehaviour
         Action(cardToField);
     }
 
-    public void Action(Card card)
+    public void Action(CardData card)
     {
         if (card is LightCard)
             (card as LightCard).Action(this);
@@ -61,7 +60,7 @@ public class EventHandler : MonoBehaviour
             (card as ControlCard).Action(this);
     }
 
-    public void SupremeAction(Card card)
+    public void SupremeAction(CardData card)
     {
         if (card is LightCard)
             (card as LightCard).SupremeAction();
@@ -75,7 +74,7 @@ public class EventHandler : MonoBehaviour
             (card as ControlCard).SupremeAction();
     }
 
-    public void SecondaryAction(Card card)
+    public void SecondaryAction(CardData card)
     {
         if (card is LightCard)
             (card as LightCard).SecondaryAction();

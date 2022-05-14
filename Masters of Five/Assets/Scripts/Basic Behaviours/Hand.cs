@@ -5,27 +5,25 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    [Header("Data Script")]
     [SerializeField] private DataHandler _dataHandler;
 
-    public List<Card> CardsInHand;
+    [Header("AspectList")]
+    public List<CardData> CardsInHand;
 
-    public Draggable CurrentCardInHand;
-    public Card CurrentCardDataInHand;
+    [Header("CurrentAspects")]
+    public Card CurrentCardInHand;
+    public CardData CurrentCardDataInHand;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eventData.pointerDrag == null)
             return;
 
-        Draggable currentCard = eventData.pointerDrag.GetComponent<Draggable>();
+        Card currentCard = eventData.pointerDrag.GetComponent<Card>();
 
         CurrentCardInHand = currentCard;
         CurrentCardDataInHand = currentCard.GetComponent<CardDisplay>().CardData;
-    }
-
-    private void Update()
-    {
-        print($"Is Sacrifising is {_dataHandler.IsSacrificing}");
     }
 
     public void OnPointerClick(PointerEventData eventData)

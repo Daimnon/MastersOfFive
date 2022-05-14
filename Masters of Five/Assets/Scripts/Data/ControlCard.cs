@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Control Card", menuName = "Card/Control")]
-public class ControlCard : Card
+public class ControlCard : CardData
 {
 	public ControlCard()
     {

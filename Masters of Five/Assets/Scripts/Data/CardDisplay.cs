@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CardDisplay : MonoBehaviour
 {
-	public Card CardData;
+	public CardData CardData;
 	public Image ArtworkImage, CardTemplate;
 	public TextMeshProUGUI NameText, DescriptionText;
 	public TextMeshProUGUI ManaText, AttackText, HealthText;

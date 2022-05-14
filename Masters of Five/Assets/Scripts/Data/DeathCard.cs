@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Death Card", menuName = "Card/Death")]
-public class DeathCard : Card {
+public class DeathCard : CardData {
 
 	public DeathCard()
 	{

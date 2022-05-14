@@ -26,20 +26,9 @@ public class EventHandler : MonoBehaviour
     // not ready
     public void Sacrifice()
     {
-        //get current card
-        Card cardToTomb = _dataHandler.BattlefieldData.CurrentCardDataInBattlefield;
-
-        //add current card to tomb
-        _dataHandler.TombData.CardsInTomb.Add(cardToTomb);
-
-        //check if works
-        print(cardToTomb.Name);
-
-        //remove placed cards from hand
-        _dataHandler.HandData.CardsInHand.Remove(cardToTomb);
-
-        Action(cardToTomb);
+        _dataHandler.IsSacrificing = true;
     }
+
 
     public void BattlefieldPlaceCard(Draggable currentTarget)
     {

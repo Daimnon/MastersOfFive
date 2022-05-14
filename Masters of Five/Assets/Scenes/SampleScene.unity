@@ -421,7 +421,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dataHandler: {fileID: 1101943094}
-  _battlefield: {fileID: 2050533433}
 --- !u!4 &132929809
 Transform:
   m_ObjectHideFlags: 0
@@ -2183,6 +2182,8 @@ MonoBehaviour:
   DeckData: {fileID: 1585555087}
   HandData: {fileID: 1365488841}
   BattlefieldData: {fileID: 2050533433}
+  TombData: {fileID: 1977320106}
+  IsSacrificing: 0
 --- !u!4 &1101943095
 Transform:
   m_ObjectHideFlags: 0
@@ -2312,8 +2313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff91d5b99c7f90749aa935e00c1bca9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dataHandler: {fileID: 1101943094}
   CardsInHand: []
   CurrentCardInHand: {fileID: 0}
+  CurrentCardDataInHand: {fileID: 0}
 --- !u!1 &1411939278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,6 +2902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dataHandler: {fileID: 1101943094}
   CardsInTomb: []
+  CurrentCardInHand: {fileID: 0}
+  CurrentCardDataInTomb: {fileID: 0}
 --- !u!1 &2050533428
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,9 +3020,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventHandler: {fileID: 132929808}
-  CurrentCardInBattlefield: {fileID: 0}
-  CurrentCardData: {fileID: 0}
   CardsInField: []
+  CurrentCardInBattlefield: {fileID: 0}
+  CurrentCardDataInBattlefield: {fileID: 0}
 --- !u!1001 &3694669322251549882
 PrefabInstance:
   m_ObjectHideFlags: 0

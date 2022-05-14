@@ -23,13 +23,14 @@ public class Hand : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerE
         CurrentCardDataInHand = currentCard.GetComponent<CardDisplay>().CardData;
     }
 
+    private void Update()
+    {
+        print($"Is Sacrifising is {_dataHandler.IsSacrificing}");
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_dataHandler.IsSacrificing)
-        {
-            Destroy(CurrentCardInHand);
-        }
+        _dataHandler.TombData.Sacrifice(eventData);
     }
 
     public void OnDrop(PointerEventData eventData)

@@ -28,23 +28,28 @@ public class Tomb : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
 
     }
 
-    public void Sacrifice(DataHandler dataHandler, Draggable currentTarget)
+    public void Sacrifice(PointerEventData eventData)
     {
-        dataHandler.IsSacrificing = true;
+        if (!_dataHandler.IsSacrificing)
+            return;
 
-        //get current card
-        Card cardToTomb = currentTarget.gameObject.GetComponent<CardDisplay>().CardData;
+        else if (_dataHandler.IsSacrificing)
+        {
+            //get current card
+            Card cardToTomb = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
 
-        //add current card to tomb
-        CardsInTomb.Add(cardToTomb);
+            //add current card to tomb
+            _dataHandler.TombData.CardsInTomb.Add(cardToTomb);
 
-        //check if works)
-        print(cardToTomb.Name);
+            //check if works
+            print(cardToTomb.Name);
 
-        dataHandler.HandData.CardsInHand.Remove(cardToTomb);
+            //remove placed cards from hand
+            _dataHandler.HandData.CardsInHand.Remove(cardToTomb);
 
-
-
+            Destroy(eventData.pointerDrag);
+            _dataHandler.IsSacrificing = false;
+        }
     }
 
     private void Search()

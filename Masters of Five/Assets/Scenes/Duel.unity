@@ -423,7 +423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dataHandler: {fileID: 95906906}
   _aspectsInDeck: []
-  _cardPrefab: {fileID: 1626021463518533258, guid: 96a530986ed496f41b3435786db14b76, type: 3}
+  _cardPrefab: {fileID: 1626021463518533258, guid: 4220076e1266b134d9bbbf456afa0ff2, type: 3}
   _lightCard: {fileID: 11400000, guid: e933b98903f95f14eaed4bdc68fb406c, type: 2}
   _deathCard: {fileID: 11400000, guid: 60aa827cf1816cd4fa2e8c0e06552139, type: 2}
   _destructionCard: {fileID: 11400000, guid: 47f538589d029c8478f2a29fd89a6175, type: 2}

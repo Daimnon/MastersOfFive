@@ -8,6 +8,16 @@ public class EventHandler : MonoBehaviour
     [Header("Data Script")]
     [SerializeField] private DataHandler _dataHandler;
 
+    public void CloseWindow(GameObject window)
+    {
+        window.SetActive(false);
+    }
+
+    public void OpenWindow(GameObject window)
+    {
+        window.SetActive(true);
+    }
+
     public void StartGame()
     {
         // Draw first card from deck's aspect list from deck to hand

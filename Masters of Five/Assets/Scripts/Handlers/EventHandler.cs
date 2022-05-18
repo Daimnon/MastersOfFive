@@ -6,7 +6,8 @@ using UnityEngine;
 public class EventHandler : MonoBehaviour
 {
     [Header("Data Script")]
-    [SerializeField] private DataHandler _dataHandler;
+    [SerializeField] private DataHandler _myDataHandler;
+    [SerializeField] private DataHandler _opponentDataHandler;
 
     public void CloseWindow(GameObject window)
     {
@@ -21,22 +22,22 @@ public class EventHandler : MonoBehaviour
     public void StartGame()
     {
         // Draw first card from deck's aspect list from deck to hand
-        _dataHandler.DeckData.InitializeGame();
+        _myDataHandler.DeckData.InitializeGame();
     }
 
     public void DrawCard()
     {
-        _dataHandler.DeckData.DrawCard();
+        _myDataHandler.DeckData.DrawCard();
     }
 
     public void DrawTwo()
     {
-        _dataHandler.DeckData.DrawTwo();
+        _myDataHandler.DeckData.DrawTwo();
     }
 
     public void Sacrifice()
     {
-        _dataHandler.IsSacrificing = true;
+        _opponentDataHandler.IsSacrificing = true;
     }
 
     public void BattlefieldPlaceCard(Card currentTarget)
@@ -45,15 +46,17 @@ public class EventHandler : MonoBehaviour
         CardData cardToField = currentTarget.gameObject.GetComponent<CardDisplay>().CardData;
 
         //add current card to battlefield
-        _dataHandler.BattlefieldData.CardsInField.Add(cardToField);
+        _myDataHandler.BattlefieldData.CardsInField.Add(cardToField);
 
         //check if works
         print(cardToField.Name);
 
         //remove placed cards from hand
-        _dataHandler.HandData.CardsInHand.Remove(cardToField);
+        _myDataHandler.HandData.CardsInHand.Remove(cardToField);
 
         Action(cardToField);
+
+        currentTarget.IsOnBattlefield = true;
     }
 
     public void Action(CardData card)

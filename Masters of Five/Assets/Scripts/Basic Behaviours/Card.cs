@@ -12,11 +12,12 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [SerializeField]
     private float _onHoverOffsetHand = 160f, _onHoverOffsetBattleField = 80f;
 
-    public bool IsCardInHand = true, IsHoldingCard = false;
+    private GameObject _placeholder = null;
 
     public Transform ParentToReturn = null;
     public Transform ParentToReturnPlaceholder = null;
-    private GameObject _placeholder = null;
+    
+    public bool IsCardInHand = true, IsHoldingCard = false, IsOnBattlefield = false;
 
     public void OnBeginDrag(PointerEventData eventData)
     {

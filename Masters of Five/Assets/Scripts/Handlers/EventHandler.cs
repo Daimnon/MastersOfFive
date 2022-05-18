@@ -38,6 +38,7 @@ public class EventHandler : MonoBehaviour
     public void Sacrifice()
     {
         _opponentDataHandler.IsSacrificing = true;
+        _opponentDataHandler.SacrificeOverlay.SetActive(true);
     }
 
     public void BattlefieldPlaceCard(Card currentTarget)

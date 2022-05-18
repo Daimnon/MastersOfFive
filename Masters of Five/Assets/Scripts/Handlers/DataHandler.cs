@@ -9,6 +9,8 @@ public class DataHandler : MonoBehaviour
     public Hand HandData; 
     public Battlefield BattlefieldData; 
     public Tomb TombData;
+
+    public GameObject SacrificeOverlay;
     
     public bool IsSacrificing = false;
 }

@@ -57,7 +57,9 @@ public class Tomb : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerE
             _dataHandler.HandData.CardsInHand.Remove(cardToTomb);
 
             Destroy(eventData.pointerDrag);
+
             _dataHandler.IsSacrificing = false;
+            _dataHandler.SacrificeOverlay.SetActive(false);
         }
     }
 

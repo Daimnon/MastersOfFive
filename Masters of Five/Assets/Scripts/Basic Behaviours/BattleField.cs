@@ -61,10 +61,10 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!_dataHandler.IsSacrificing)
+        if (!_dataHandler.IsDestroying)
             return;
 
-        else if (_dataHandler.IsSacrificing)
+        else if (_dataHandler.IsDestroying)
             _dataHandler.TombData.CardToDestroy(eventData);
     }
 }

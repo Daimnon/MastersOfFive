@@ -8,6 +8,8 @@ public class EventHandler : MonoBehaviour
     [Header("Data Script")]
     [SerializeField] private DataHandler _myDataHandler;
     [SerializeField] private DataHandler _opponentDataHandler;
+    
+    public LineRenderer TargetLine;
 
     public void CloseWindow(GameObject window)
     {
@@ -41,9 +43,11 @@ public class EventHandler : MonoBehaviour
         _opponentDataHandler.SacrificeOverlay.SetActive(true);
     }
 
+    // need fixing
     public void Destroy()
     {
-        _myDataHandler.IsSacrificing = true;
+        _myDataHandler.IsDestroying = true;
+        
         //_myDataHandler.SacrificeOverlay.SetActive(true);
     }
 
@@ -65,6 +69,9 @@ public class EventHandler : MonoBehaviour
         Action(cardToField);
 
         currentTarget.IsOnBattlefield = true;
+
+        // get last placed card on field
+        _myDataHandler.LastPlacedCardOnBattelfield = currentTarget.gameObject;
 
         // addintional code here ----- V
     }

@@ -11,7 +11,8 @@ public class DataHandler : MonoBehaviour
     public Tomb TombData;
 
     public GameObject SacrificeOverlay;
+    public GameObject LastPlacedCardOnBattelfield;
     
     public bool IsSacrificing = false;
-    public bool IsDestroing = false;
+    public bool IsDestroying = false;
 }

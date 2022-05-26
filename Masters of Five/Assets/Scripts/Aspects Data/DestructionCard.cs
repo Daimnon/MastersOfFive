@@ -13,7 +13,7 @@ public class DestructionCard : CardData
 	public void Action(EventHandler eventHandler)
 	{
 		// fix needed
-		eventHandler.DrawCard();
+		eventHandler.Destroy();
 	}
 
 	public void SupremeAction()

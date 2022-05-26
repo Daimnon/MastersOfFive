@@ -7,7 +7,8 @@ using UnityEngine;
 public class Tomb : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Data Script")]
-    [SerializeField] private DataHandler _dataHandler;
+    [SerializeField] private DataHandler _myDataHandler;
+    [SerializeField] private EventHandler _myEventHandler;
 
     [Header("AspectList")]
     public List<CardData> CardsInTomb;
@@ -43,38 +44,40 @@ public class Tomb : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerE
         CardData cardToTomb = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
 
         //add current card to tomb
-        _dataHandler.TombData.CardsInTomb.Add(cardToTomb);
+        _myDataHandler.TombData.CardsInTomb.Add(cardToTomb);
 
         //check if works
         print(cardToTomb.Name);
 
         //remove placed cards from hand
-        _dataHandler.HandData.CardsInHand.Remove(cardToTomb);
+        _myDataHandler.HandData.CardsInHand.Remove(cardToTomb);
 
         Destroy(eventData.pointerDrag);
 
-        _dataHandler.IsSacrificing = false;
-        _dataHandler.SacrificeOverlay.SetActive(false);
+        _myDataHandler.IsSacrificing = false;
+        _myDataHandler.SacrificeOverlay.SetActive(false);
     }
 
     public void CardToDestroy(PointerEventData eventData)
     {
+        _myEventHandler.TargetLine.SetPosition(0, _myDataHandler.LastPlacedCardOnBattelfield.transform.position);
+        _myEventHandler.TargetLine.SetPosition(1, eventData.position);
+        print("Tried drawing line");
         //get current card
         CardData cardToTomb = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
 
         //add current card to tomb
-        _dataHandler.TombData.CardsInTomb.Add(cardToTomb);
+        _myDataHandler.TombData.CardsInTomb.Add(cardToTomb);
 
         //check if works
         print(cardToTomb.Name);
 
         //remove placed cards from hand
-        _dataHandler.HandData.CardsInHand.Remove(cardToTomb);
+        _myDataHandler.HandData.CardsInHand.Remove(cardToTomb);
 
         Destroy(eventData.pointerDrag);
 
-        _dataHandler.IsSacrificing = false;
-        _dataHandler.SacrificeOverlay.SetActive(false);
+        _myDataHandler.IsDestroying = false;
     }
 
     private void Search()

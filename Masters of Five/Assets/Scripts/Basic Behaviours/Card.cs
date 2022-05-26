@@ -86,9 +86,11 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         if (IsHoldingCard)
             return;
 
+        // affects cards in battlefield
         else if (!IsCardInHand)
             transform.position = new Vector2(transform.position.x, transform.position.y + _onHoverOffsetBattleField);
 
+        // affects cars in hand
         else
             transform.position = new Vector2(transform.position.x, transform.position.y + _onHoverOffsetHand);
     }
@@ -100,9 +102,11 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         if (IsHoldingCard)
             return;
 
+        // affects cards in battlefield
         else if (!IsCardInHand)
             transform.position = new Vector2(transform.position.x, transform.position.y - _onHoverOffsetBattleField);
 
+        // affects cars in hand
         else
             transform.position = new Vector2(transform.position.x, transform.position.y - _onHoverOffsetHand);
     }

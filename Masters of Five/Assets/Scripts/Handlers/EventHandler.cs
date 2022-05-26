@@ -41,6 +41,13 @@ public class EventHandler : MonoBehaviour
         _opponentDataHandler.SacrificeOverlay.SetActive(true);
     }
 
+    public void Destroy()
+    {
+        _myDataHandler.IsSacrificing = true;
+        //_myDataHandler.SacrificeOverlay.SetActive(true);
+    }
+
+    // when the player place the card on the battlefield
     public void BattlefieldPlaceCard(Card currentTarget)
     {
         //get current card
@@ -58,6 +65,8 @@ public class EventHandler : MonoBehaviour
         Action(cardToField);
 
         currentTarget.IsOnBattlefield = true;
+
+        // addintional code here ----- V
     }
 
     public void Action(CardData card)

@@ -39,28 +39,42 @@ public class Tomb : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerE
 
     public void CardToSacrifice(PointerEventData eventData)
     {
-        if (!_dataHandler.IsSacrificing)
-            return;
+        //get current card
+        CardData cardToTomb = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
 
-        else if (_dataHandler.IsSacrificing)
-        {
-            //get current card
-            CardData cardToTomb = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
+        //add current card to tomb
+        _dataHandler.TombData.CardsInTomb.Add(cardToTomb);
 
-            //add current card to tomb
-            _dataHandler.TombData.CardsInTomb.Add(cardToTomb);
+        //check if works
+        print(cardToTomb.Name);
 
-            //check if works
-            print(cardToTomb.Name);
+        //remove placed cards from hand
+        _dataHandler.HandData.CardsInHand.Remove(cardToTomb);
 
-            //remove placed cards from hand
-            _dataHandler.HandData.CardsInHand.Remove(cardToTomb);
+        Destroy(eventData.pointerDrag);
 
-            Destroy(eventData.pointerDrag);
+        _dataHandler.IsSacrificing = false;
+        _dataHandler.SacrificeOverlay.SetActive(false);
+    }
 
-            _dataHandler.IsSacrificing = false;
-            _dataHandler.SacrificeOverlay.SetActive(false);
-        }
+    public void CardToDestroy(PointerEventData eventData)
+    {
+        //get current card
+        CardData cardToTomb = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
+
+        //add current card to tomb
+        _dataHandler.TombData.CardsInTomb.Add(cardToTomb);
+
+        //check if works
+        print(cardToTomb.Name);
+
+        //remove placed cards from hand
+        _dataHandler.HandData.CardsInHand.Remove(cardToTomb);
+
+        Destroy(eventData.pointerDrag);
+
+        _dataHandler.IsSacrificing = false;
+        _dataHandler.SacrificeOverlay.SetActive(false);
     }
 
     private void Search()

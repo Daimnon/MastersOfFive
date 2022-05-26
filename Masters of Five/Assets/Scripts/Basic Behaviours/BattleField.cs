@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [Header("Data Script")]
+    [SerializeField] private DataHandler _dataHandler;
     [SerializeField] private EventHandler _eventHandler;
 
     [Header("AspectList")]
@@ -56,5 +57,14 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
             CurrentCardInBattlefield.ParentToReturnPlaceholder = transform;
             CurrentCardInBattlefield.IsCardInHand = false;
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!_dataHandler.IsSacrificing)
+            return;
+
+        else if (_dataHandler.IsSacrificing)
+            _dataHandler.TombData.CardToDestroy(eventData);
     }
 }

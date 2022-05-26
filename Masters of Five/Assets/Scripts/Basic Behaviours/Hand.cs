@@ -28,7 +28,11 @@ public class Hand : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerE
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        _dataHandler.TombData.CardToSacrifice(eventData);
+        if (!_dataHandler.IsSacrificing)
+            return;
+
+        else if (_dataHandler.IsSacrificing)
+            _dataHandler.TombData.CardToSacrifice(eventData);
     }
 
     public void OnDrop(PointerEventData eventData)

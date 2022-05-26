@@ -13,4 +13,5 @@ public class DataHandler : MonoBehaviour
     public GameObject SacrificeOverlay;
     
     public bool IsSacrificing = false;
+    public bool IsDestroing = false;
 }

@@ -8,6 +8,7 @@ public class DataHandler : MonoBehaviour
     public Deck DeckData; 
     public Hand HandData; 
     public Battlefield BattlefieldData; 
+    public Battlefield OpponentBattlefieldData; 
     public Tomb TombData;
 
     public GameObject SacrificeOverlay;

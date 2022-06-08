@@ -8,6 +8,7 @@ public class Tomb : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerE
 {
     [Header("Data Script")]
     [SerializeField] private DataHandler _myDataHandler;
+    [SerializeField] private DataHandler _opponentDataHandler;
     [SerializeField] private EventHandler _myEventHandler;
 
     [Header("AspectList")]
@@ -16,7 +17,6 @@ public class Tomb : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerE
     [Header("CurrentAspects")]
     public Card CurrentCardInHand;
     public CardData CurrentCardDataInTomb;
-
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -60,20 +60,20 @@ public class Tomb : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerE
 
     public void CardToDestroy(PointerEventData eventData)
     {
-        _myEventHandler.TargetLine.SetPosition(0, _myDataHandler.LastPlacedCardOnBattelfield.transform.position);
-        _myEventHandler.TargetLine.SetPosition(1, eventData.position);
+        //_myEventHandler.TargetLine.SetPosition(0, _myDataHandler.LastPlacedCardOnBattelfield.transform.position);
+        //_myEventHandler.TargetLine.SetPosition(1, eventData.position);
         print("Tried drawing line");
         //get current card
         CardData cardToTomb = eventData.pointerDrag.GetComponent<CardDisplay>().CardData;
 
         //add current card to tomb
-        _myDataHandler.TombData.CardsInTomb.Add(cardToTomb);
+        _opponentDataHandler.TombData.CardsInTomb.Add(cardToTomb);
 
         //check if works
         print(cardToTomb.Name);
 
-        //remove placed cards from hand
-        _myDataHandler.HandData.CardsInHand.Remove(cardToTomb);
+        //remove placed cards from battlefield
+        _opponentDataHandler.BattlefieldData.CardsInField.Remove(cardToTomb);
 
         Destroy(eventData.pointerDrag);
 

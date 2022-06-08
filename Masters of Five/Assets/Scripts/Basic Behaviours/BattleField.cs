@@ -6,8 +6,9 @@ using UnityEngine;
 public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [Header("Data Script")]
-    [SerializeField] private DataHandler _dataHandler;
-    [SerializeField] private EventHandler _eventHandler;
+    [SerializeField] private DataHandler _myDataHandler;
+    [SerializeField] private DataHandler _opponentDataHandler;
+    [SerializeField] private EventHandler _myEventHandler;
 
     [Header("AspectList")]
     public List<CardData> CardsInField;
@@ -16,6 +17,8 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
     public Card CurrentCardInBattlefield;
     public CardData CurrentCardDataInBattlefield;
 
+
+    public PointerEventData ClickEventData;
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (eventData.pointerDrag == null)
@@ -39,7 +42,7 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
         {
             CurrentCardInBattlefield.ParentToReturn = transform;
             CurrentCardInBattlefield.IsCardInHand = false;
-            _eventHandler.BattlefieldPlaceCard(CurrentCardInBattlefield);
+            _myEventHandler.BattlefieldPlaceCard(CurrentCardInBattlefield);
             CurrentCardInBattlefield = null;
             CurrentCardDataInBattlefield = null;
 
@@ -61,10 +64,13 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!_dataHandler.IsDestroying)
+        //ClickEventData = eventData;
+
+        if (!_myDataHandler.IsDestroying)
             return;
 
-        else if (_dataHandler.IsDestroying)
-            _dataHandler.TombData.CardToDestroy(eventData);
+        // need opponent eventData
+        else if (_myDataHandler.IsDestroying)
+            _myDataHandler.TombData.CardToDestroy(eventData);
     }
 }

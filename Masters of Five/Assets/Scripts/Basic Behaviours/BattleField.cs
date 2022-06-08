@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class rose : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [Header("Data Script")]
     [SerializeField] private DataHandler _dataHandler;
@@ -42,7 +42,7 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
             _eventHandler.BattlefieldPlaceCard(CurrentCardInBattlefield);
             CurrentCardInBattlefield = null;
             CurrentCardDataInBattlefield = null;
-            
+
             print("card Placed");
         }
     }

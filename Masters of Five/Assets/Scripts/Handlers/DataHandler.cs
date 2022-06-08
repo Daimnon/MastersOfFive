@@ -7,7 +7,7 @@ public class DataHandler : MonoBehaviour
     [Header("Data Scripts")]
     public Deck DeckData; 
     public Hand HandData; 
-    public Rose BattlefieldData; 
+    public Battlefield BattlefieldData; 
     public Tomb TombData;
 
     public GameObject SacrificeOverlay;

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Room.unity
     guid: 5bf912c3b41ec464882944c189db1da3
+  - enabled: 1
+    path: Assets/Scenes/Duel.unity
+    guid: dbe6d25f8b1fd824bbbc69ecb2c980bc
   m_configObjects: {}

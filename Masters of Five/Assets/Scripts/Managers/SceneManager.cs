@@ -41,8 +41,13 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(4);
     }
 
-    public void MoveToDuel()
+    public void MoveToRoom()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(5);
+    }
+
+    public void MoveToDuel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(6);
     }
 }

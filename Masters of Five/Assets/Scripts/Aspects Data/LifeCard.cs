@@ -12,8 +12,7 @@ public class LifeCard : CardData
 
 	public void Action(EventHandler eventHandler)
 	{
-		// fix needed
-		eventHandler.DrawCard();
+		eventHandler.Revive();
 	}
 
 	public void SupremeAction()

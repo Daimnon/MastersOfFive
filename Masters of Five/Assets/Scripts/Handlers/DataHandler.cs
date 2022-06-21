@@ -13,7 +13,8 @@ public class DataHandler : MonoBehaviour
 
     public GameObject SacrificeOverlay;
     public GameObject LastPlacedCardOnBattelfield;
-    
+
+    public bool IsReviving = false;
     public bool IsSacrificing = false;
     public bool IsDestroying = false;
 }

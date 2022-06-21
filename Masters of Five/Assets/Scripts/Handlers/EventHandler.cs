@@ -37,6 +37,12 @@ public class EventHandler : MonoBehaviour
         _myDataHandler.DeckData.DrawTwo();
     }
 
+    public void Revive()
+    {
+        _myDataHandler.IsReviving = true;
+        _myDataHandler.TombData.SearchTomb();
+    }
+
     public void Sacrifice()
     {
         _opponentDataHandler.IsSacrificing = true;

@@ -12,7 +12,6 @@ public class DeathCard : CardData {
 
 	public void Action(EventHandler eventHandler)
 	{
-		// fix needed
 		eventHandler.Sacrifice();
 	}
 

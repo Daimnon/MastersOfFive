@@ -9,19 +9,40 @@ public class SceneManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ReturnToMainMenu()
+    // "title menu"
+    public void MoveToMainMenu()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
-
+    // "main menu"
     public void MoveToLobby()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
-    public void MoveToDuel()
+    public void MoveToSetting()
+    {
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(?);
+    }
+
+    public void MoveToGameMenu()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+    }
+
+    public void MoveToCreateRoom()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(3);
+    }
+
+    public void MoveToJoinRoom()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(4);
+    }
+
+    public void MoveToDuel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(5);
     }
 }

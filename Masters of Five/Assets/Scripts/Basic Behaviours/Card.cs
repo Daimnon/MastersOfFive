@@ -26,11 +26,11 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         IsHoldingCard = true;
         _placeholder = new GameObject($"{name}_Placeholder");
         _placeholder.transform.SetParent(transform.parent);
-        LayoutElement le = _placeholder.AddComponent<LayoutElement>();
-        le.preferredWidth = GetComponent<LayoutElement>().preferredWidth;
-        le.preferredHeight = GetComponent<LayoutElement>().preferredHeight;
-        le.flexibleWidth = 0;
-        le.flexibleHeight = 0;
+        //LayoutElement le = _placeholder.AddComponent<LayoutElement>();
+        //le.preferredWidth = GetComponent<LayoutElement>().preferredWidth;
+        //le.preferredHeight = GetComponent<LayoutElement>().preferredHeight;
+        //le.flexibleWidth = 0;
+        //le.flexibleHeight = 0;
 
         _placeholder.transform.SetSiblingIndex(transform.GetSiblingIndex());
 

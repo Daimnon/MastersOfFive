@@ -17,7 +17,6 @@ public class Battlefield : MonoBehaviour, IDropHandler, IPointerEnterHandler, IP
     public Card CurrentCardInBattlefield;
     public CardData CurrentCardDataInBattlefield;
 
-
     public PointerEventData ClickEventData;
     public void OnPointerEnter(PointerEventData eventData)
     {

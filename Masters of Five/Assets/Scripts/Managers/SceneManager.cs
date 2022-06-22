@@ -50,4 +50,9 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(6);
     }
+
+    public void MoveToDuel1()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(7);
+    }
 }

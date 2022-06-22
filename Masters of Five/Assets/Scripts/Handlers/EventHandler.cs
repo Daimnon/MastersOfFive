@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+
 using UnityEngine;
 
 public class EventHandler : MonoBehaviour
@@ -8,8 +9,19 @@ public class EventHandler : MonoBehaviour
     [Header("Data Script")]
     [SerializeField] private DataHandler _myDataHandler;
     [SerializeField] private DataHandler _opponentDataHandler;
-    
+
     public LineRenderer TargetLine;
+
+    private int ifFiveIWin = 0;
+    private bool didIWin = false;
+
+    private void Update()
+    {
+        if (didIWin)
+        {
+            Debug.Log("I Won");
+        }
+    }
 
     public void CloseWindow(GameObject window)
     {
@@ -25,6 +37,12 @@ public class EventHandler : MonoBehaviour
     {
         // Draw first card from deck's aspect list from deck to hand
         _myDataHandler.DeckData.InitializeGame();
+    }
+
+    public void StartGameShowCase()
+    {
+        // Draw first card from deck's aspect list from deck to hand
+        _myDataHandler.DeckData.InitializeGameShowCase();
     }
 
     public void DrawCard()
@@ -80,6 +98,61 @@ public class EventHandler : MonoBehaviour
         _myDataHandler.LastPlacedCardOnBattelfield = currentTarget.gameObject;
 
         // addintional code here ----- V
+
+        for (int i = 0; i < _myDataHandler.BattlefieldData.CardsInField.Count; i++)
+        {
+            if (_myDataHandler.BattlefieldData.CardsInField[i].PrimodialPower == PowerType.Light)
+            {
+                ifFiveIWin++;
+                break;
+            }
+        }
+
+        for (int i = 0; i < _myDataHandler.BattlefieldData.CardsInField.Count; i++)
+        {
+            if (_myDataHandler.BattlefieldData.CardsInField[i].PrimodialPower == PowerType.Death)
+            {
+                ifFiveIWin++;
+                break;
+            }
+        }
+
+        for (int i = 0; i < _myDataHandler.BattlefieldData.CardsInField.Count; i++)
+        {
+            if (_myDataHandler.BattlefieldData.CardsInField[i].PrimodialPower == PowerType.Control)
+            {
+                ifFiveIWin++;
+                break;
+            }
+        }
+
+        for (int i = 0; i < _myDataHandler.BattlefieldData.CardsInField.Count; i++)
+        {
+            if (_myDataHandler.BattlefieldData.CardsInField[i].PrimodialPower == PowerType.Destruction)
+            {
+                ifFiveIWin++;
+                break;
+            }
+        }
+
+        for (int i = 0; i < _myDataHandler.BattlefieldData.CardsInField.Count; i++)
+        {
+            if (_myDataHandler.BattlefieldData.CardsInField[i].PrimodialPower == PowerType.Life)
+            {
+                ifFiveIWin++;
+                break;
+            }
+        }
+
+        if (ifFiveIWin < 5)
+        {
+            Debug.Log("Counted " + ifFiveIWin);
+            ifFiveIWin = 0;
+        }
+        else
+        {
+            didIWin = true;
+        }
     }
 
     public void Action(CardData card)

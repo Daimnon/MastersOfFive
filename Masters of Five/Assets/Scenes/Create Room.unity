@@ -2780,7 +2780,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1911526443}
         m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: MoveToDuel
+        m_MethodName: MoveToRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

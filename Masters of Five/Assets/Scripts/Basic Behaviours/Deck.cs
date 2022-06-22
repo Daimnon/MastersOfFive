@@ -21,6 +21,7 @@ public class Deck : MonoBehaviour
     [SerializeField]
     private CardData _deathCard, _destructionCard, _lifeCard, _controlCard;
 
+    private bool _isDrawingWithLight = false;
     private int _maxDeckSize = 25, _currentDeckSize;
 
     private void Start()
@@ -52,6 +53,65 @@ public class Deck : MonoBehaviour
 
         //add said cards to hand
         _dataHandler.HandData.CardsInHand.AddRange(cardsToHand);
+
+        //loops through said cards's data, reads it and creates a prefab based on that data in the hand
+        foreach (CardData card in cardsToHand)
+        {
+            _cardPrefab.GetComponent<CardDisplay>().CardData = card;
+            Instantiate(_cardPrefab, _dataHandler.HandData.transform);
+
+            //check if works (update: it does)
+            print(card.Name);
+        }
+
+        //remove drawn cards from deck
+        _aspectsInDeck.RemoveRange(0, 4);
+        _currentDeckSize -= 4;
+    }
+
+    public void InitializeGameShowCase()
+    {
+        List<CardData> cardsToHand = new List<CardData>(4);
+
+        //get top 4 cards in deck
+        for (int i = 0; i < _aspectsInDeck.Count; i++)
+        {
+            if (_aspectsInDeck[i].name == "LightAspect")
+            {
+                cardsToHand.Add(_aspectsInDeck[i]);
+                break;
+            }
+        }
+
+        for (int i = 0; i < _aspectsInDeck.Count; i++)
+        {
+            if (_aspectsInDeck[i].name == "LifeAspect")
+            {
+                cardsToHand.Add(_aspectsInDeck[i]);
+                break;
+            }
+        }
+
+        for (int i = 0; i < _aspectsInDeck.Count; i++)
+        {
+            if (_aspectsInDeck[i].name == "DeathAspect")
+            {
+                cardsToHand.Add(_aspectsInDeck[i]);
+                break;
+            }
+        }
+
+        for (int i = 0; i < _aspectsInDeck.Count; i++)
+        {
+            if (_aspectsInDeck[i].name == "ControlAspect")
+            {
+                cardsToHand.Add(_aspectsInDeck[i]);
+                break;
+            }
+        }
+
+        //add said cards to hand
+        _dataHandler.HandData.CardsInHand = cardsToHand;
 
         //loops through said cards's data, reads it and creates a prefab based on that data in the hand
         foreach (CardData card in cardsToHand)
